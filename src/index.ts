@@ -35,6 +35,7 @@ class App {
             const definition: Definition = this.definitionService.findDefinition(req.method, req.path);
             App.handleRequest(req, res, definition, callNumber);
         });
+        UserNotificationUtils.notifyEndpoints(this.definitionService.getEndpoints());
         this.app.listen(PORT, UserNotificationUtils.notifyStartupPort);
     }
 
