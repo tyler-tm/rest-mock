@@ -14,7 +14,8 @@ function toCleanResponse(input: any): Response {
     };
 }
 
-function getSequentialResponseDefinition(definition: Definition, callNumber: number): Response {
+function getSequentialResponseDefinition(definition: Definition,
+                                         callNumber: number): Response {
     const numberOfResponses: number = definition.sequentialResponses.length;
     const responseNumber: number = (callNumber < numberOfResponses - 1)
         ? callNumber : numberOfResponses - 1;
@@ -31,7 +32,8 @@ function buildResponse(req: express.Request,
         return NOT_FOUND_RESPONSE;
     }
 
-    if (definition.sequentialResponses) {
+    if (definition.sequentialResponses
+        && definition.sequentialResponses.length > 0) {
         return getSequentialResponseDefinition(definition, callNumber);
     }
 
