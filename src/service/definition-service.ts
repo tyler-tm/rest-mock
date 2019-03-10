@@ -1,20 +1,15 @@
 import {Definition} from '../model/Definition';
-import definitionUtils from '../utils/definition-utils';
 
-class DefinitionService {
+export class DefinitionService {
 
-    readonly definitionSet: Array<Definition> = [];
+    readonly definitions: Array<Definition>;
 
-    public constructor(definitions) {
-        this.definitionSet = definitions;
+    public constructor(definitions: Array<Definition>) {
+        this.definitions = definitions;
     }
 
-    public findDefinition(path: string, method: string): Definition {
-        const match = this.definitionSet.find(item => item.path === path && item.method === method);
-        return definitionUtils.clean(match);
+    public findDefinition(method: string, path: string): Definition {
+        const match = this.definitions.find(item => item.path === path && item.method === method);
+        return match;
     }
-}
-
-export default {
-    DefinitionService,
 }

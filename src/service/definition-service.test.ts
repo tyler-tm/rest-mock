@@ -1,7 +1,7 @@
-import definitionService from './definition-service'
 import {Definition} from '../model/Definition';
+import {DefinitionService} from './definition-service'
 
-describe('definitionService', () => {
+describe('DefinitionService', () => {
         const definitions: Array<Definition> = [
             {
                 path: "/content",
@@ -39,18 +39,18 @@ describe('definitionService', () => {
             },
         ];
 
-        const subject = new definitionService.DefinitionService(definitions);
+        const subject: DefinitionService = new DefinitionService(definitions);
     describe('findDefinition', () => {
         it('should return undefined if a definition with path and method is not in list', () => {
             const result: Definition = subject
-                .findDefinition('/user', 'GET');
+                .findDefinition('GET', '/user');
 
             expect(result).toBeUndefined();
         });
 
         it('should return definition if a definition with path and method is in list', () => {
             const result: Definition = subject
-                .findDefinition('/user', 'PUT');
+                .findDefinition('PUT', '/user');
 
             const expected: Definition = {
                 path: "/user",

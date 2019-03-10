@@ -25,13 +25,38 @@
 		{
 			"path": "/user",
 			"method": "PUT",
-			"status": 201,
-			"headers": {
-				"headerName": "headerBody"
-			},
-			"responseBody": {
-				"message": "Defined response for PUT:/user"
-			}
+			"sequentialResponses": [
+				{
+					"status": 201,
+					"headers": {
+						"sequence": 0,
+						"header-name": "header-body"
+					},
+					"responseBody": {
+						"message": "Created first user"
+					}
+				},
+				{
+					"status": 201,
+					"headers": {
+						"sequence": 1,
+						"header-name": "header-body"
+					},
+					"responseBody": {
+						"message": "Created second user"
+					}
+				},
+				{
+					"status": 201,
+					"headers": {
+						"sequence": 2,
+						"header-name": "header-body"
+					},
+					"responseBody": {
+						"message": "Created third user"
+					}
+				}
+			]
 		}
 	]
 }

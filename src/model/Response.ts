@@ -1,5 +1,7 @@
 export interface Response {
     status: number,
-    headers?: object,
-    json: object,
+    headers: {
+        [name: string]: any
+    },
+    responseBody: object,
 }

@@ -4,35 +4,38 @@ import DEFINITION_SET from '../definitions.json';
 import {PORT} from './constants';
 import {Definition} from './model/Definition';
 import {Response} from './model/Response';
-import responseService from './service/response-service';
-import definitionService from './service/definition-service'
-import cliService from './service/cli-service';
+import {DefinitionService} from './service/definition-service';
+import {CallHistoryService} from './service/call-history-service';
+import UserNotificationUtils from './utils/user-notification-utils';
+import ResponseUtils from './utils/response-utils';
 
 class App {
 
     public app: express.Application;
-    readonly definitionService;
+    readonly callHistoryService: CallHistoryService;
+    readonly definitionService: DefinitionService;
 
     constructor() {
-        this.definitionService = new definitionService.DefinitionService(DEFINITION_SET);
+        this.definitionService = new DefinitionService(DEFINITION_SET.definitions);
+        this.callHistoryService = new CallHistoryService();
         this.app = express();
         this.config();
     }
 
-    private static handleRequest(req: express.Request,
-                                 res: express.Response,
-                                 definition: Definition): void {
-        const response: Response = responseService.buildResponse(req, definition);
+    private static handleRequest(req: express.Request, res: express.Response,
+                                 definition: Definition, callNumber: number): void {
+        const response: Response = ResponseUtils.buildResponse(req, definition, callNumber);
         res.set(response.headers);
-        res.status(response.status).send(response.json);
+        res.status(response.status).send(response.responseBody);
     }
 
     private config(): void {
         this.app.all('/**', (req, res) => {
-            const definition = this.definitionService.findDefinition(req.path, req.method);
-            App.handleRequest(req, res, definition);
+            const callNumber: number = this.callHistoryService.increment(req.method, req.path);
+            const definition: Definition = this.definitionService.findDefinition(req.method, req.path);
+            App.handleRequest(req, res, definition, callNumber);
         });
-        this.app.listen(PORT, cliService.notifyStartupPort);
+        this.app.listen(PORT, UserNotificationUtils.notifyStartupPort);
     }
 
 }
