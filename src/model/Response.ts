@@ -1,7 +1,7 @@
+import {StringMap} from "./StringMap";
+
 export interface Response {
     status: number,
-    headers: {
-        [name: string]: any
-    },
+    headers: StringMap<string | number>,
     responseBody: object,
 }

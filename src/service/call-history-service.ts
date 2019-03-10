@@ -1,12 +1,11 @@
-import {StringNumberMap} from "../model/StringNumberMap";
+import {StringMap} from "../model/StringMap";
 
 export class CallHistoryService {
-    readonly callHistory: StringNumberMap;
+    readonly callHistory: StringMap<number>;
 
     constructor() {
         this.callHistory = {};
     }
-
 
     public increment(method: string, path: string): number {
         const callKey: string = method + path;
