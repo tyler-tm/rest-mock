@@ -1,0 +1,37 @@
+{
+	"definitions": [
+		{
+			"path": "/content",
+			"method": "GET",
+			"headers": {
+				"first-header-name": "first-header-body",
+				"second-header-name": "second-header-body"
+			},
+			"responseBody": {
+				"message": "Defined response for GET:/content"
+			}
+		},
+		{
+			"path": "/feedback",
+			"method": "POST",
+			"status": 400,
+			"headers": {
+				"headerName": "headerBody"
+			},
+			"responseBody": {
+				"message": "Defined response for POST:/feedback"
+			}
+		},
+		{
+			"path": "/user",
+			"method": "PUT",
+			"status": 201,
+			"headers": {
+				"headerName": "headerBody"
+			},
+			"responseBody": {
+				"message": "Defined response for PUT:/user"
+			}
+		}
+	]
+}
