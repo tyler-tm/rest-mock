@@ -19,6 +19,7 @@ REST API mocking using Node and JSON-defined responses (mock server)
 ### Uses 🛠
 - Decoupled development; start working on an app UI before backing services are available
 - Testing your app against edge cases from endpoints you do not control or failure states that are difficult to reproduce
+- Show a working prototype frontend to get user feedback, without having to build out a backend first
 
 ### Getting Started 🚦
 1. Clone the repository
