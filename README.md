@@ -1,4 +1,7 @@
 ## REST Mock 👻
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+[![Known Vulnerabilities](https://snyk.io/test/github/tyler-tm/rest-mock/badge.svg?targetFile=package.json)](https://snyk.io/test/github/tyler-tm/rest-mock?targetFile=package.json)
+
 REST API mocking using Node and JSON-defined responses (mock server)
 
 ### Contents
