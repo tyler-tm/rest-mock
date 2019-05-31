@@ -23,6 +23,9 @@ REST API mocking using Node and JSON-defined responses (mock server)
 3. Open a terminal window in your cloned repository
 4. Run ‘npm install’ (or first [install npm](https://www.npmjs.com/get-npm), if you haven’t already)
 5. Run ‘npm start’
+6. Send your requests to `http://localhost:3030`
+
+![REST Mock Startup](https://i.ibb.co/F6ZsfMq/rest-mock-start.png)
 
 ### Defining Endpoints
 - The ‘definitions.json’ file is where your endpoints are defined.  This is a single JSON object with an array of Definition objects, which define the Path and Method for the endpoint, as well as properties for the response, or an array of Response objects for [Sequential Responses](#sequential-responses).
