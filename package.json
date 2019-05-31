@@ -1,7 +1,12 @@
 {
   "name": "rest-mock",
   "version": "1.0.0",
-  "description": "Quick JSON-defined mocks for REST APIs",
+  "description": "REST API mocking using Node and JSON=defined responses (mock server)",
+  "homepage": "https://github.com/tyler-tm/rest-mock#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tyler-tm/rest-mock.git"
+  },
   "main": "dist/src/index.js",
   "devDependencies": {
     "@types/express": "^4.16.0",
