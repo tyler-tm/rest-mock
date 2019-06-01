@@ -5,16 +5,16 @@
 REST API mocking using Node and JSON-defined responses (mock server)
 
 ### Contents 📖
-1. [Features](#features)
-2. [Uses](#uses)
-3. [Getting Started](#getting-started)
-4. [Defining Endpoints](#defining-endpoints)
-5. [Sequential Responses](#sequential-responses)
-6. [License](#license)
+1. [Features](#features-)
+2. [Uses](#uses-)
+3. [Getting Started](#getting-started-)
+4. [Defining Endpoints](#defining-endpoints-)
+5. [Sequential Responses](#sequential-responses-)
+6. [License](#license-)
 
 ### Features 👍
-- [Describe endpoints](#defining-endpoints) with JSON “definitions” or request matchers, which will respond to any request matching its Path and Method with the Status, Headers, and Response Body set for that definition
-- [Sequential Responses](#sequential-responses) allow for different responses depending on how many times an endpoint has been called since server start
+- [Describe endpoints](#defining-endpoints-) with JSON “definitions” or request matchers, which will respond to any request matching its Path and Method with the Status, Headers, and Response Body set for that definition
+- [Sequential Responses](#sequential-responses-) allow for different responses depending on how many times an endpoint has been called since server start
 
 ### Uses 🛠
 - Decoupled development; start working on an app UI before backing services are available
@@ -23,7 +23,7 @@ REST API mocking using Node and JSON-defined responses (mock server)
 
 ### Getting Started 🚦
 1. Clone the repository
-2. Edit the `definitions.json` file to [define endpoints/responses](#defining-endpoints)
+2. Edit the `definitions.json` file to [define endpoints/responses](#defining-endpoints-)
 3. Open a terminal window in your cloned repository
 4. Run `npm install` (or first [install npm](https://www.npmjs.com/get-npm), if you haven’t already)
 5. Run `npm start`
@@ -32,7 +32,7 @@ REST API mocking using Node and JSON-defined responses (mock server)
 ![REST Mock Startup](https://i.ibb.co/F6ZsfMq/rest-mock-start.png)
 
 ### Defining Endpoints 📝
-- The `definitions.json` file is where your endpoints are defined.  This is a single JSON object with an array of Definition objects, which define the Path and Method for the endpoint, as well as properties for the response, or an array of Response objects for [Sequential Responses](#sequential-responses).
+- The `definitions.json` file is where your endpoints are defined.  This is a single JSON object with an array of Definition objects, which define the Path and Method for the endpoint, as well as properties for the response, or an array of Response objects for [Sequential Responses](#sequential-responses-).
 ```
 interface Definition {
 	path: string,
@@ -43,7 +43,7 @@ interface Definition {
 	sequentialResponses?: Array<Response>,
 }
 ```
-- **If a [Sequential Responses](#sequential-responses) array is included, it will be used instead of the Status, Headers, and Response Body properties of the definition object.**
+- **If a [Sequential Responses](#sequential-responses-) array is included, it will be used instead of the Status, Headers, and Response Body properties of the definition object.**
 - There are examples in the `definitions.json` file to start, including setting headers and some sequential responses.
 - Definitions are read in from `dist/definitions.json` on server start, which is copied from the `definitions.json` file in the root project folder whenever `npm start` is run or the TypeScript project is compiled (`tsc`).
   
