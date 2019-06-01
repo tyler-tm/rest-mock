@@ -28,6 +28,7 @@
     "pretest": "eslint --ext js,ts,d.ts src",
     "test": "jest",
     "postinstall": "tsc",
+    "prestart": "cp definitions.json dist/",
     "start": "node dist/src/index.js"
   },
   "author": "Tyler Maklebust",

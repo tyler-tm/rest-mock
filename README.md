@@ -45,12 +45,7 @@ interface Definition {
 ```
 - **If a [Sequential Responses](#sequential-responses) array is included, it will be used instead of the Status, Headers, and Response Body properties of the definition object.**
 - There are examples in the `definitions.json` file to start, including setting headers and some sequential responses.
-- Right now definitions are read in from `dist/definitions.json` on server start, but this is overwritten by the `definitions.json` file in the root project folder whenever the TypeScript project is compiled.  So, in order to update definitions, you should do *one* of the following:
-  1. Just modify the `definitions.json` file in the `dist/` directory and restart the app.  *This file will be overwritten if the project is recompiled (`tsc`) which is currently included in the npm post-install hook*
-  
-    **_or_**
-  
-  2. Modify the `definitions.json` file in the root project directory, then run `tsc` or `npm install` so that your changes end up in the `dist/definitions.json` file and restart the app
+- Definitions are read in from `dist/definitions.json` on server start, which is copied from the `definitions.json` file in the root project folder whenever `npm start` is run or the TypeScript project is compiled (`tsc`).
   
 ### Sequential Responses 🔁
 - If the `sequentialResponses` array is defined in the endpoint definition, it will iterate through array elements, responding with the properties from each one, until it reaches the last element of the array.  It will continue to respond with the properties from the final element, if the endpoint is called again.
